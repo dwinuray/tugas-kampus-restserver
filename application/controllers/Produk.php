@@ -58,6 +58,7 @@ class Produk extends RestController{
       'deskripsi' => $this->post('deskripsi', true),
       'berat' => $this->post('berat', true)
     ];
+
     $simpan = $this->produk->add($data);
     if ($simpan['status']) {
       $this->response(['status' => true, 'msg' => $simpan['data'] . ' Data telah ditambahkan'], RestController::HTTP_CREATED);
@@ -92,6 +93,8 @@ class Produk extends RestController{
 
   public function index_delete()
   {
+
+      // test
     $id = $this->delete('kd_produk', true);
     if ($id === null) {
       $this->response(['status' => false, 'msg' => 'Masukkan kode yang akan dihapus'], RestController::HTTP_BAD_REQUEST);
